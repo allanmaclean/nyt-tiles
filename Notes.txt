@@ -1,0 +1,3 @@
+GENERAL
+* Why is App.js rendering twice on startup?
+* Research UUID - I have a feeling the way I'm handling keys and ids is amateur
