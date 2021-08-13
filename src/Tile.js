@@ -1,8 +1,4 @@
 const Tile = ({ cssColor, handleClick }) => {
-  //   const handleClick = (e) => {
-  //     console.log(e.target.style.backgroundColor);
-  //   };
-
   return (
     <div
       className="tile"

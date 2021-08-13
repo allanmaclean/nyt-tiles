@@ -16,35 +16,19 @@ const TileGrid = ({ tileColors }) => {
   const [currentClick, setCurrentClick] = useState(null);
   const [lastClick, setLastClick] = useState(null);
 
-  //have a feeling this is in the wrong layer here...
-  //   const [border, setBorder] = useState("");
-
-  const handleClick = (e) => {
-    console.log(e.target.style.backgroundColor);
-
-    if (currentClick) {
-      setLastClick(currentClick);
+  useEffect(() => {
+    console.log("generalized useEffect fired");
+    //would also need to reset state after each of the ternary options
+    if (primarySelect.background && secondarySelect.background) {
+      primarySelect.background === secondarySelect.background
+        ? match()
+        : noMatch();
     }
-    setCurrentClick(e.target);
-    // if (prevHighlight) {
-    //   prevHighlight.style.border = "";
-    // }
-    // setHighlight(e.target);
-    // e.target.style.border = "2px solid red";
-    if (!primarySelect.background) {
-      setPrimarySelect({
-        ...primarySelect,
-        background: e.target.style.backgroundColor,
-      });
-    } else {
-      setSecondarySelect({
-        ...secondarySelect,
-        background: e.target.style.backgroundColor,
-      });
-    }
-  };
+  });
 
   useEffect(() => {
+    console.log("useEffect for currentClick fired");
+
     if (lastClick) {
       lastClick.style.border = "";
     }
@@ -58,10 +42,47 @@ const TileGrid = ({ tileColors }) => {
     }
   }, [currentClick]);
 
+  useEffect(() => {
+    //is there a terser syntax for checking if all props in an object are truthy/falsy?
+    //**This go anywhere logic is incorrect
+    if (
+      !primarySelect.background &&
+      !primarySelect.midground &&
+      !primarySelect.foreground
+    ) {
+      console.log("Go Anywhere!");
+    }
+  }, [primarySelect]);
+
+  const handleClick = (e) => {
+    console.log(e.target.style.backgroundColor);
+
+    if (currentClick) {
+      if (e.target === currentClick) {
+        console.log("cannot select the same square");
+      } else {
+        setLastClick(currentClick);
+      }
+    }
+    setCurrentClick(e.target);
+
+    if (!primarySelect.background) {
+      setPrimarySelect({
+        ...primarySelect,
+        background: e.target.style.backgroundColor,
+      });
+    } else {
+      if (e.target !== currentClick) {
+        setSecondarySelect({
+          ...secondarySelect,
+          background: e.target.style.backgroundColor,
+        });
+      }
+    }
+  };
+
   const match = () => {
     console.log("You found a match");
-    // highlight.style.backgroundColor = "";
-    // prevHighlight.style.backgroundColor = "";
     //this is background specific, and would need additional logic once there's multiple layers to each tile
     setPrimarySelect({
       ...primarySelect,
@@ -71,9 +92,8 @@ const TileGrid = ({ tileColors }) => {
       ...secondarySelect,
       background: null,
     });
-
-    // setPrevHighlight(null);
-    // setHighlight(null);
+    currentClick.style.backgroundColor = "";
+    lastClick.style.backgroundColor = "";
   };
 
   const noMatch = () => {
@@ -90,22 +110,6 @@ const TileGrid = ({ tileColors }) => {
     setCurrentClick(null);
     setLastClick(null);
   };
-
-  useEffect(() => {
-    //would also need to reset state after each of the ternary options
-    if (primarySelect.background && secondarySelect.background) {
-      primarySelect.background === secondarySelect.background
-        ? match()
-        : noMatch();
-    }
-  });
-
-  //   useEffect(() => {
-  //     if (highlight) {
-  //       highlight.style.border = "2px solid red";
-  //       setPrevHighlight(highlight);
-  //     }
-  //   }, [highlight]);
 
   return (
     <div className="tile-grid">

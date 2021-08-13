@@ -1,7 +1,11 @@
 GENERAL
 * Why is App.js rendering twice on startup?
 * Research UUID - I have a feeling the way I'm handling keys and ids is amateur
-* Use debugger to figure out the flow upon finding a match
+* is storing the whole div as e.target bad practice? Not particularly helpful in terms of the Components dev tools - better to track by ID here?
+
+TILE GENERATION LOGIC
+* When a random number is selected, it should be pushed into the array in duplicate - so that each tile has an achieveable match during the game.
+One way of acheiving this could be to loop 15 times and then duplicate the whole array, and then shuffle it again. Seems a bit convoluted, and not great from a time/space complexity standpoit, but may be acceptable as we're dealing with a relatively small overall array size.
 
 CURRENTLY SELECTED HIGHLIGHT LOGIC
 * Select a tile via click
@@ -11,15 +15,20 @@ If first click
 If second click
 * set lastClick to value of currentClick
 * set currentClick to selected tile
+Upon update of currentClick:
 * check for equality
 * if no, present 'no match' modal in currentClick's tile (can just console.log for now)
 * Reset currentClick and lastClick to null
-* if yes, remove layer (can just set backgroundColor to an empty string in current example)
+* if yes:
+* check it is not the same dom node - throw error in console if it is
+* else, remove layer (can just set backgroundColor to an empty string in current example)
+
 * incremement current combo
 * set lastClick to null
 * set currentClick to selected tile
 
-
+'GO ANYWHERE!' LOGIC
+* if a succesful match has been found, and after setting the background color of the matched tiles to an empty string, check to see if there are any remaining truthy properties in the primarySelect
 
 
 or upon succesful match with no remaining layers in currently selected square:
