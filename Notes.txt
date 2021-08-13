@@ -1,3 +1,28 @@
 GENERAL
 * Why is App.js rendering twice on startup?
 * Research UUID - I have a feeling the way I'm handling keys and ids is amateur
+* Use debugger to figure out the flow upon finding a match
+
+CURRENTLY SELECTED HIGHLIGHT LOGIC
+* Select a tile via click
+If first click
+* set currentClick to selected tile. lastClick remains null.
+* To determine if second click, check for truthy value of currentClick
+If second click
+* set lastClick to value of currentClick
+* set currentClick to selected tile
+* check for equality
+* if no, present 'no match' modal in currentClick's tile (can just console.log for now)
+* Reset currentClick and lastClick to null
+* if yes, remove layer (can just set backgroundColor to an empty string in current example)
+* incremement current combo
+* set lastClick to null
+* set currentClick to selected tile
+
+
+
+
+or upon succesful match with no remaining layers in currently selected square:
+
+const currentClick
+const lastClick

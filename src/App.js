@@ -93,6 +93,7 @@ function App() {
 
   return (
     <div className="App">
+      {/* Should main container be it's own component here, if I'm going to store current combo/highest combo? */}
       <div className="main-container"></div>
       <TileGrid tileColors={tileColors} />
       {/* <div className="tile-grid">{tiles}</div> */}
