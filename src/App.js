@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 // import css from 'styled-jsx/macro'
 import TileGrid from "./TileGrid";
+import Scoring from "./Scoring";
 
 function App() {
   console.log("App rendered");
@@ -10,6 +11,9 @@ function App() {
   const [backgroundColors, setBackgroundColors] = useState([]);
   const [midgroundColors, setMidgroundColors] = useState([]);
   const [foregroundColors, setForegroundColors] = useState([]);
+
+  const [currentCombo, setCurrentCombo] = useState(0);
+  const [longestCombo, setLongestCombo] = useState(0);
 
   useEffect(() => {
     const colors = {
@@ -191,7 +195,11 @@ function App() {
         midgroundColors={midgroundColors}
         foregroundColors={foregroundColors}
         handleMatch={handleMatch}
+        currentCombo={currentCombo}
+        setCurrentCombo={setCurrentCombo}
+        setLongestCombo={setLongestCombo}
       />
+      <Scoring currentCombo={currentCombo} longestCombo={longestCombo} />
     </div>
   );
 }

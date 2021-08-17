@@ -62,3 +62,21 @@ div {
 .color-palete {
   background-color: fuc;
 }
+
+.scoring-section {
+  margin: 5%;
+}
+
+.scoring-heading-section {
+  display: flex;
+  width: 100%;
+  /* border: 1px solid black; */
+  justify-content: space-between;
+}
+
+.scoring-number-section {
+  display: flex;
+  width: 100%;
+  /* border: 1px solid black; */
+  justify-content: space-between;
+}

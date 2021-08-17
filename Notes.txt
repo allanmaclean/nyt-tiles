@@ -3,6 +3,14 @@ GENERAL
 * Research UUID - I have a feeling the way I'm handling keys and ids is amateur
 * is storing the whole div as e.target bad practice? Not particularly helpful in terms of the Components dev tools - better to track by ID here?
 
+TO DO: TUE AUG 17
+* Impliment highlighting
+    - reimpliment the go anywhere / primarySelect reset
+    - something weird happening when checking id 0 as secondarySelect
+* Test!
+
+
+
 STATE IN TILE GRID - refactored
     - First click on the entire board:
 * Clicking a random square, should populate primarySelect - with the element being the 'background' ie parent element - and background, midground, foreground being the css background colors as strings
