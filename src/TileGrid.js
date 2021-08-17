@@ -8,6 +8,7 @@ const TileGrid = ({
   handleMatch,
   currentCombo,
   setCurrentCombo,
+  longestCombo,
   setLongestCombo,
 }) => {
   console.log("tile grid rendered");
@@ -18,6 +19,7 @@ const TileGrid = ({
     id: null,
   });
 
+  //would this need to be in a use effect?
   const goAnywhere = () => {
     setPrimarySelect({ id: null });
     alert("go anywhere!");
@@ -33,11 +35,14 @@ const TileGrid = ({
       }
     }
     //prevent this from firing first time - and prevent 'go anywhere' from firing after it upon game completion
-    alert("game over!");
+    //Am sure there is a more elegant way of doing this
+    if (longestCombo > 0) {
+      alert("game over!");
+    }
   }
 
   useEffect(() => {
-    if (secondarySelect.id) {
+    if (secondarySelect.id !== null) {
       console.log("secondarySelect was updated. Checking for equality...");
 
       const pBack = document.getElementById(`background-${primarySelect.id}`);
@@ -59,6 +64,7 @@ const TileGrid = ({
       matches.length ? match(matches) : noMatch();
     }
     checkComplete();
+    //I need some logic here to prevent goAnywhere from firing
     if (
       currentCombo > 0 &&
       !backgroundColors[primarySelect.id] &&
@@ -78,6 +84,12 @@ const TileGrid = ({
     setSecondarySelect({ id: null });
     setCurrentCombo(currentCombo + 1);
   };
+
+  useEffect(() => {
+    if (currentCombo > longestCombo) {
+      setLongestCombo(currentCombo);
+    }
+  }, [currentCombo]);
 
   const noMatch = () => {
     console.log("no matches");

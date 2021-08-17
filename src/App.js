@@ -15,6 +15,8 @@ function App() {
   const [currentCombo, setCurrentCombo] = useState(0);
   const [longestCombo, setLongestCombo] = useState(0);
 
+  const [isComplete, setIsComplete] = useState(false);
+
   useEffect(() => {
     const colors = {
       //Current logic means that the length of these arrays must be an odd number, to ensure that each has a matchable pair
@@ -135,6 +137,7 @@ function App() {
         handleMatch={handleMatch}
         currentCombo={currentCombo}
         setCurrentCombo={setCurrentCombo}
+        longestCombo={longestCombo}
         setLongestCombo={setLongestCombo}
       />
       <Scoring currentCombo={currentCombo} longestCombo={longestCombo} />
