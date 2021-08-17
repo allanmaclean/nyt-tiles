@@ -18,6 +18,24 @@ const TileGrid = ({
     id: null,
   });
 
+  const goAnywhere = () => {
+    setPrimarySelect({ id: null });
+    alert("go anywhere!");
+  };
+
+  function checkComplete() {
+    const colorsArrays = [backgroundColors, midgroundColors, foregroundColors];
+
+    for (let i = 0; i < colorsArrays.length; i++) {
+      for (let j = 0; j < colorsArrays[i].length; j++) {
+        console.log(colorsArrays[i][j]);
+        if (colorsArrays[i][j] !== "") return;
+      }
+    }
+    //prevent this from firing first time - and prevent 'go anywhere' from firing after it upon game completion
+    alert("game over!");
+  }
+
   useEffect(() => {
     if (secondarySelect.id) {
       console.log("secondarySelect was updated. Checking for equality...");
@@ -40,6 +58,16 @@ const TileGrid = ({
       }
       matches.length ? match(matches) : noMatch();
     }
+    checkComplete();
+    if (
+      currentCombo > 0 &&
+      !backgroundColors[primarySelect.id] &&
+      !midgroundColors[primarySelect.id] &&
+      !foregroundColors[primarySelect.id]
+    ) {
+      goAnywhere();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [secondarySelect]);
 
   const match = (matches) => {

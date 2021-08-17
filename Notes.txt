@@ -5,7 +5,18 @@ GENERAL
 
 TO DO: TUE AUG 17
 * Impliment highlighting
-    - reimpliment the go anywhere / primarySelect reset
+    
+    _ How to inexpensively check for game complete status?
+
+    function checkComplete() {
+        const colorsArrays = [backgroundColors, midgroundColors, foregroundColors]
+        for (let i = 0; i < backgroundColors.length; i++) {
+            //or refactor as null might be clearer?
+            if (backgroundColors[i] !== "") return false;
+        }
+        //ditto for the other two arrays
+        return true;
+    }
     - something weird happening when checking id 0 as secondarySelect
 * Test!
 
