@@ -4,6 +4,7 @@ import "./App.css";
 // import css from 'styled-jsx/macro'
 import TileGrid from "./TileGrid";
 import Scoring from "./Scoring";
+// import Square from "./Square";
 
 function App() {
   console.log("App rendered");
@@ -14,8 +15,14 @@ function App() {
 
   const [currentCombo, setCurrentCombo] = useState(0);
   const [longestCombo, setLongestCombo] = useState(0);
+  //TO DO: Game Over modal
+  // const [isComplete, setIsComplete] = useState(false);
 
-  const [isComplete, setIsComplete] = useState(false);
+  //pertains to the 'go anywhere' logic in this file and Square.js
+  // const [toggle, setToggle] = useState(false);
+  // const handleClick = () => {
+  //   setToggle(!toggle);
+  // };
 
   useEffect(() => {
     const colors = {
@@ -141,6 +148,8 @@ function App() {
         setLongestCombo={setLongestCombo}
       />
       <Scoring currentCombo={currentCombo} longestCombo={longestCombo} />
+      {/* leaving this here as it contains the logic for the 'go anywhere' keyframes animation */}
+      {/* <Square handleClick={handleClick} toggle={toggle} setToggle={setToggle} /> */}
     </div>
   );
 }

@@ -89,3 +89,52 @@ div {
   /* border: 1px solid black; */
   justify-content: space-between;
 }
+
+.red-box {
+  border: 1px solid black;
+  height: 400px;
+  width: 400px;
+  background-color: red;
+  margin: 40px;
+}
+
+.black-dialog {
+  height: 200px;
+  width: 480px;
+  background-color: black;
+  margin-top: 100px;
+  margin-left: -40px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.black-dialog[animation="0"] {
+}
+
+.hide {
+  opacity: 0;
+  height: 0;
+}
+
+.black-dialog[animation="1"] {
+  animation: createBox 1s;
+}
+
+.white-text {
+  color: white;
+}
+
+/* can I swell this with percentages? */
+@keyframes createBox {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}

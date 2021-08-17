@@ -22,6 +22,7 @@ const TileGrid = ({
   //would this need to be in a use effect?
   const goAnywhere = () => {
     setPrimarySelect({ id: null });
+    //General keyframe bits down - see App.js + Square.js for how I'd impliment
     alert("go anywhere!");
   };
 
