@@ -3,6 +3,10 @@ GENERAL
 * Research UUID - I have a feeling the way I'm handling keys and ids is amateur
 * is storing the whole div as e.target bad practice? Not particularly helpful in terms of the Components dev tools - better to track by ID here?
 
+STATE IN TILE GRID - refactored
+    - First click on the entire board:
+* Clicking a random square, should populate primarySelect - with the element being the 'background' ie parent element - and background, midground, foreground being the css background colors as strings
+
 TILE GENERATION LOGIC
 * When a random number is selected, it should be pushed into the array in duplicate - so that each tile has an achieveable match during the game.
 One way of acheiving this could be to loop 15 times and then duplicate the whole array, and then shuffle it again. Seems a bit convoluted, and not great from a time/space complexity standpoit, but may be acceptable as we're dealing with a relatively small overall array size.

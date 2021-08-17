@@ -27,25 +27,38 @@ div {
 }
 
 .tile {
-  /* height: 100px;
-  width: 100px;
-  display: inline-block;
-  margin-bottom: -4px; */
   border: 1px solid black;
 }
 
-.yellow {
-  background-color: yellow;
+.background {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
 }
 
-.red {
-  background-color: red;
+.midground {
+  height: 60%;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 10%;
 }
 
-.teal {
-  background-color: teal;
+.foreground {
+  height: 50%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 10%;
 }
 
 .color-palete {
-  background-color: moc;
+  background-color: fuc;
 }
