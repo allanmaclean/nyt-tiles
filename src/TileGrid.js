@@ -60,6 +60,8 @@ const TileGrid = ({
   };
 
   const handleClick = (e) => {
+    console.log("handleClick fired");
+
     const clicked = e.target.closest(".tile");
     const idTarget = clicked.id;
     const idx = idTarget.indexOf("-");
@@ -87,6 +89,7 @@ const TileGrid = ({
           <Tile
             key={idx}
             id={idx}
+            primarySelect={primarySelect}
             backgroundColor={backgroundColor}
             midgroundColor={midgroundColors[idx]}
             foregroundColor={foregroundColors[idx]}

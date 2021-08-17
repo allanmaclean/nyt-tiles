@@ -26,8 +26,28 @@ div {
   margin: 30px;
 }
 
-.tile {
+.outer-tile {
+  /* height: 100%;
+  width: 100%; */
   border: 1px solid black;
+}
+
+.tile {
+  /* border: 1px solid black; */
+  /* display: flex; */
+  height: 100%;
+  width: 100%;
+  /* flex-direction: column;
+  align-items: center; */
+  /* justify-content: flex-end; */
+}
+
+.active-tile {
+  border: 5px solid red;
+}
+
+.red-text {
+  color: red;
 }
 
 .background {

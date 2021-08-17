@@ -1,10 +1,18 @@
 import { useState } from "react";
 
 const Scoring = ({ currentCombo, longestCombo }) => {
+  const [isActive, setIsActive] = useState(false);
+
+  const handleToggle = () => {
+    setIsActive(!isActive);
+  };
+
   return (
     <div className="scoring-section">
       <div className="scoring-heading-section">
-        <h3>Current Combo</h3>
+        <h3 onClick={handleToggle} className={isActive ? "red-text" : ""}>
+          Current Combo
+        </h3>
         <h3>Longest Combo</h3>
       </div>
       <div className="scoring-number-section">
