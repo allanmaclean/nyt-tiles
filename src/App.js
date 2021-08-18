@@ -111,26 +111,51 @@ function App() {
     randomColorArray(colors.foreground, setForegroundColors);
   }, []);
 
-  const handleMatch = (layer, primaryId, secondaryId) => {
-    console.log("handleMatch fired!");
-    console.log(layer, primaryId, secondaryId);
+  // const handleMatch = (layer, primaryId, secondaryId) => {
+  //   console.log("handleMatch fired!");
+  //   console.log(layer, primaryId, secondaryId);
+
+  //   if (layer === "background") {
+  //     const copy = [...backgroundColors];
+  //     copy[primaryId] = "";
+  //     copy[secondaryId] = "";
+  //     setBackgroundColors(copy);
+  //   }
+  //   if (layer === "midground") {
+  //     const copy = [...midgroundColors];
+  //     copy[primaryId] = "";
+  //     copy[secondaryId] = "";
+  //     setMidgroundColors(copy);
+  //   }
+  //   if (layer === "foreground") {
+  //     const copy = [...foregroundColors];
+  //     copy[primaryId] = "";
+  //     copy[secondaryId] = "";
+  //     setForegroundColors(copy);
+  //   }
+  // };
+
+  //update param names here to clearer!
+  const handleMatches = (layer, primaryIndex, secondaryIndex) => {
+    console.log("handleMatches fired!");
+    console.log(layer, primaryIndex, secondaryIndex);
 
     if (layer === "background") {
       const copy = [...backgroundColors];
-      copy[primaryId] = "";
-      copy[secondaryId] = "";
+      copy[primaryIndex] = "";
+      copy[secondaryIndex] = "";
       setBackgroundColors(copy);
     }
     if (layer === "midground") {
       const copy = [...midgroundColors];
-      copy[primaryId] = "";
-      copy[secondaryId] = "";
+      copy[primaryIndex] = "";
+      copy[secondaryIndex] = "";
       setMidgroundColors(copy);
     }
     if (layer === "foreground") {
       const copy = [...foregroundColors];
-      copy[primaryId] = "";
-      copy[secondaryId] = "";
+      copy[primaryIndex] = "";
+      copy[secondaryIndex] = "";
       setForegroundColors(copy);
     }
   };
@@ -141,7 +166,8 @@ function App() {
         backgroundColors={backgroundColors}
         midgroundColors={midgroundColors}
         foregroundColors={foregroundColors}
-        handleMatch={handleMatch}
+        // handleMatch={handleMatch}
+        handleMatches={handleMatches}
         currentCombo={currentCombo}
         setCurrentCombo={setCurrentCombo}
         longestCombo={longestCombo}

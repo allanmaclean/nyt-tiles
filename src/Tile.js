@@ -13,7 +13,10 @@ const Tile = ({
   // };
   return (
     <div
-      className={`outer-tile ${primarySelect.id === id ? "active-tile" : ""}`}
+      // className={`outer-tile ${primarySelect.id === id ? "active-tile" : ""}`}
+      className={`outer-tile ${
+        primarySelect.current === id ? "active-tile" : ""
+      }`}
       // onClick={handleToggle}
     >
       <div id={`tile-${id}`} className="tile" onClick={handleClick}>
